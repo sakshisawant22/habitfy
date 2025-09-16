@@ -1,11 +1,10 @@
-## Habitfy
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/AggressiveUser/AggressiveUser/main/happy.gif" alt="AggressiveUser" width=320 height=150>
-</p>
+![alt text](https://raw.githubusercontent.com/sakshisawant22/habitfy/refs/heads/main/assest/img/ss.png)
 
 
-#### Why Habitify?
+
+
+
+####         Why Habitify?
 -   🌱 Built for Growth – Habitify helps you form small, consistent habits that lead to meaningful life changes.
 -   🎯 Simple & Clean – A clutter-free design makes habit tracking effortless and enjoyable.
 -   🚀 Motivation Made Easy – Stay inspired with progress tracking, streaks, and reminders.
@@ -15,3 +14,7 @@
 -   🔑 Consistency is Power – Success comes from daily actions, not sudden changes.
 -   🌍 For Everyone – Students, professionals, and creators can all build better lives with Habitify.
 -   ✨ More than an App – A companion that grows with you, unlocking your full potential.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AggressiveUser/AggressiveUser/main/happy.gif" alt="AggressiveUser" width=320 height=150>
+</p>
