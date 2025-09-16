@@ -1,7 +1,7 @@
 ## Habitfy
 
 
-- Why Habitify?
+#### Why Habitify?
 -   🌱 Built for Growth – Habitify helps you form small, consistent habits that lead to meaningful life changes.
 -   🎯 Simple & Clean – A clutter-free design makes habit tracking effortless and enjoyable.
 -   🚀 Motivation Made Easy – Stay inspired with progress tracking, streaks, and reminders.
