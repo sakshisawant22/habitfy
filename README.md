@@ -1,5 +1,9 @@
 ## Habitfy
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AggressiveUser/AggressiveUser/main/happy.gif" alt="AggressiveUser" width=320 height=150>
+</p>
+
 
 #### Why Habitify?
 -   🌱 Built for Growth – Habitify helps you form small, consistent habits that lead to meaningful life changes.
