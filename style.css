@@ -216,7 +216,7 @@ button.ghost{background:#f3f4f6;color:#374151}
 .day.done{background:var(--success);color:#e9e9e9;border:none}
 .day.today{border:2px solid var(--accent)}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.stat{background:#f9fafb;padding:12px;border-radius:6px;text-align:center}
+.stat{background:#ffffff;padding:12px;border-radius:6px;text-align:center;color: #000000;}
 .stat strong{display:block;font-size:18px}
 
 /* Responsive */
