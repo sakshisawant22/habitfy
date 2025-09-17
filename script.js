@@ -20,7 +20,11 @@ function initSpanForHabits(){
   state.habits.forEach(h=>{
     if(!h.days||h.days.length!==span){
       const newDays=new Array(span).fill(false);
-      if(h.days){ for(let i=0;i<Math.min(h.days.length,span);i++){ newDays[span-1-i]=h.days[h.days.length-1-i]; } }
+      if(h.days){ 
+        for(let i=0;i<Math.min(h.days.length,span);i++){ 
+          newDays[span-1-i]=h.days[h.days.length-1-i]; 
+        } 
+      }
       h.days=newDays;
     }
   });
@@ -31,8 +35,18 @@ function addHabit(title){
   saveState();
 }
 function toggleDay(id,idx){
-  const h=state.habits.find(x=>x.id===id); if(!h) return;
-  h.days[idx]=!h.days[idx]; saveState();
+  const h=state.habits.find(x=>x.id===id); 
+  if(!h) return;
+  h.days[idx]=!h.days[idx]; 
+  saveState();
+}
+
+// --- Delete Habit ---
+function deleteHabit(id){
+  if(confirm("Are you sure you want to delete this habit?")){
+    state.habits = state.habits.filter(h => h.id !== id);
+    saveState();
+  }
 }
 
 // --- Stats Calculation ---
@@ -80,16 +94,34 @@ function render(){
   cont.innerHTML=''; 
   initSpanForHabits();
   state.habits.forEach(h=>{
-    const el=document.createElement('div'); el.className='card';
-    el.innerHTML=`<div class="habit-title">${h.title}</div>`;
-    const days=document.createElement('div'); days.className='days';
+    const el=document.createElement('div'); 
+    el.className='card';
+
+    // header with title + delete button
+    const head=document.createElement('div');
+    head.className='habit-head';
+    head.innerHTML=`<div class="habit-title">${h.title}</div>`;
+    const delBtn=document.createElement('button');
+    delBtn.textContent="✖";
+    delBtn.className="delete-btn";
+    delBtn.onclick=()=>deleteHabit(h.id);
+    head.appendChild(delBtn);
+    el.appendChild(head);
+
+    // days buttons
+    const days=document.createElement('div'); 
+    days.className='days';
     h.days.forEach((d,i)=>{
-      const btn=document.createElement('div'); btn.className='day'; if(d) btn.classList.add('done');
+      const btn=document.createElement('div'); 
+      btn.className='day'; 
+      if(d) btn.classList.add('done');
       if(i===todayIndex()) btn.classList.add('today');
-      btn.textContent=i+1; btn.onclick=()=>toggleDay(h.id,i);
+      btn.textContent=i+1; 
+      btn.onclick=()=>toggleDay(h.id,i);
       days.appendChild(btn);
     });
-    el.appendChild(days); cont.appendChild(el);
+    el.appendChild(days); 
+    cont.appendChild(el);
   });
   updateStats();
 }
@@ -100,7 +132,8 @@ window.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('addHabitBtn').onclick=()=>{
       const v=document.getElementById('newHabitInput').value;
       if(!v.trim()) return alert("Enter a habit");
-      addHabit(v); document.getElementById('newHabitInput').value="";
+      addHabit(v); 
+      document.getElementById('newHabitInput').value="";
     };
     document.getElementById('spanSelect').onchange=()=>{initSpanForHabits(); saveState();};
     loadState(); initSpanForHabits(); render();

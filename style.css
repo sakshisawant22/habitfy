@@ -395,6 +395,24 @@ button.ghost{background:#f3f4f6;color:#374151}
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.habit-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.delete-btn:hover {
+  color: darkred;
+}
+
+
 .feedback-form button:hover {
   background: #1e40af;
   transform: scale(1.05);
