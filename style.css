@@ -324,7 +324,7 @@ button.ghost{background:#f3f4f6;color:#374151}
 /* Background with overlay */
 .feedback-background {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
-              url('assest/img/ssplash.jpg') no-repeat center center/cover;
+              url('assest/img/feedback.jpg') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
