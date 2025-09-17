@@ -228,7 +228,7 @@ button.ghost{background:#f3f4f6;color:#374151}
 
 .about-background {
   background: linear-gradient(rgba(3, 2, 2, 0.4), rgba(24, 23, 23, 0.4)),
-              url('assest/img/feedback.jpg') no-repeat center center/cover;
+              url('assest/img/pen.jpg') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
