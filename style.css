@@ -131,7 +131,7 @@ body{
 }
 
 .about-background {
-  background: url('/about.html') no-repeat center center/cover;
+  background: url('./pen.jpg') no-repeat center center/cover;
   padding: 40px 0;
   border-radius: 0px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -228,7 +228,7 @@ button.ghost{background:#f3f4f6;color:#374151}
 
 .about-background {
   background: linear-gradient(rgba(3, 2, 2, 0.4), rgba(24, 23, 23, 0.4)),
-              url('assest/img/ssplash.jpg') no-repeat center center/cover;
+              url('assest/img/feedback.jpg') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -324,7 +324,7 @@ button.ghost{background:#f3f4f6;color:#374151}
 /* Background with overlay */
 .feedback-background {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
-              url('assest/img/feedback.jpg') no-repeat center center/cover;
+              url('assest/img/ssplash.jpg') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
