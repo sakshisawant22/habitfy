@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Routines for Good Habits</title>
+  <link rel="stylesheet" href="planstyle.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Habitify</div>
+    <ul>
+      <li style="border: none; color: pink;"><a href="index.html">Home</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="habit.html">Tracker</a></li>
+      <li><a href="plan.html" class="active">Daily Plan</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <div class="about-background" align="right" style="background: 
+    linear-gradient(rgba(3, 2, 2, 0.4), rgba(29, 28, 28, 0.4)), /* overlay */
+    url('assest/img/mnt.jpg') no-repeat center center/cover; min-height: 100vh;"><div class="container">
+
+  <!-- Header -->
+  <header>
+    <h2>🌟 Daily Routines for Building Good Habits</h2>
+  </header>
+
+  <!-- Background wrapper -->
+  <div class="about-background">
+    <main class="routine-container">
+        
+      <!-- Morning -->
+      <section class="routine">
+        <h2>🌅 Morning</h2>
+        <ul>
+          <li><span class="time">8:00 AM</span> Run 🏃‍♂️</li>
+          <li><span class="time">8:30 AM</span> Meditate 🧘</li>
+          <li><span class="time">9:00 AM</span> Plan the day 📝</li>
+          <li><span class="time">9:30 AM</span> Hydrate 💧</li>
+          <li><span class="time">10:00 AM</span> Read 📖</li>
+        </ul>
+      </section>
+
+      <!-- Noon -->
+      <section class="routine">
+        <h2>🌞 Noon</h2>
+        <ul>
+          <li><span class="time">12:00 PM</span> Healthy Lunch 🥗</li>
+          <li><span class="time">2:00 PM</span> Connect with a colleague 👥</li>
+          <li><span class="time">4:00 PM</span> Express gratitude 🙏</li>
+        </ul>
+      </section>
+
+      <!-- Night -->
+      <section class="routine">
+        <h2>🌙 Night</h2>
+        <ul>
+          <li><span class="time">8:00 PM</span> Reflect 🪞</li>
+          <li><span class="time">9:00 PM</span> Wind Down 😌</li>
+          <li><span class="time">9:30 PM</span> Disconnect from screens 📵</li>
+          <li><span class="time">10:00 PM</span> Prepare for tomorrow 📅</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>🌟 Stay consistent and build good habits daily!</p>
+    </footer>
+  </div>
+</div>
+  <!-- JS for toggle -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("li").forEach(item => {
+        item.addEventListener("click", () => {
+          item.classList.toggle("done");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

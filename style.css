@@ -424,3 +424,61 @@ button.ghost{background:#f3f4f6;color:#374151}
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.navbar ul li  {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 1;
+  padding: 1;
+  background-color: rgb(0, 0, 0);
+}
+
+/* Navbar */
+.navbar {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(17, 11, 1, 0.95); /* Solid dark background */
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 27px;
+  color: #ffffff;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  background: transparent; /* remove unwanted bg */
+}
+
+.navbar ul li {
+  margin: 0;
+  padding: 0;
+  background: transparent; /* remove black card look */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fafbfd;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffd700; /* gold hover */
+}
+
+.navbar a.active {
+  color: var(--accent);
+}
