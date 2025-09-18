@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Calculators</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #000000, #66a6ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      background: rgba(11, 11, 11, 0.15);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin-left: 25px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      color: #000;
+    }
+
+    h1 {
+      margin: 30px 0 20px;
+      color: #fff;
+    }
+
+    /* Calculator Grid */
+    .calculator-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    input, select, button {
+      margin: 8px 0;
+      padding: 10px;
+      width: 90%;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      background: #4facfe;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #00c6ff;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Habitify</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="habit.html">Tracker</a></li>
+      <li><a href="plan.html">Daily Plan</a></li>
+      <li><a href="health.html" class="active">Health Tools</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  
+    
+  <h1>🧮 Health Calculators</h1>
+
+  <div class="calculator-container">
+    <!-- Calories Burned -->
+    <div class="card">
+      <h2>Calories Burned (Walking)</h2>
+      <input type="number" id="km" placeholder="Enter km walked">
+      <button onclick="calculateCalories()">Calculate</button>
+      <p class="result" id="caloriesResult"></p>
+    </div>
+
+    <!-- BMI Calculator -->
+    <div class="card">
+      <h2>BMI Calculator</h2>
+      <input type="number" id="weight" placeholder="Weight (kg)">
+      <input type="number" id="height" placeholder="Height (cm)">
+      <button onclick="calculateBMI()">Calculate</button>
+      <p class="result" id="bmiResult"></p>
+    </div>
+
+    <!-- Water Intake -->
+    <div class="card">
+      <h2>Daily Water Intake</h2>
+      <input type="number" id="weightWater" placeholder="Weight (kg)">
+      <button onclick="calculateWater()">Calculate</button>
+      <p class="result" id="waterResult"></p>
+    </div>
+
+    <!-- BMR Calculator -->
+    <div class="card">
+      <h2>BMR Calculator</h2>
+      <input type="number" id="bmrWeight" placeholder="Weight (kg)">
+      <input type="number" id="bmrHeight" placeholder="Height (cm)">
+      <input type="number" id="bmrAge" placeholder="Age (years)">
+      <select id="bmrGender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <button onclick="calculateBMR()">Calculate</button>
+      <p class="result" id="bmrResult"></p>
+    </div>
+
+    <!-- Ideal Weight -->
+    <div class="card">
+      <h2>Ideal Weight Range</h2>
+      <input type="number" id="idealHeight" placeholder="Height (cm)">
+      <button onclick="calculateIdealWeight()">Calculate</button>
+      <p class="result" id="idealWeightResult"></p>
+    </div>
+
+    <!-- Body Fat % (Approx) -->
+    <div class="card">
+      <h2>Body Fat %</h2>
+      <input type="number" id="waist" placeholder="Waist (cm)">
+      <input type="number" id="neck" placeholder="Neck (cm)">
+      <input type="number" id="bfHeight" placeholder="Height (cm)">
+      <button onclick="calculateBodyFat()">Calculate</button>
+      <p class="result" id="bodyFatResult"></p>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    function calculateCalories() {
+      let km = document.getElementById("km").value;
+      if (km > 0) {
+        let calories = km * 50;
+        document.getElementById("caloriesResult").innerText = `You burned ~${calories} calories.`;
+      } else {
+        document.getElementById("caloriesResult").innerText = "Enter valid km.";
+      }
+    }
+
+    function calculateBMI() {
+      let weight = document.getElementById("weight").value;
+      let height = document.getElementById("height").value / 100;
+      if (weight > 0 && height > 0) {
+        let bmi = (weight / (height * height)).toFixed(2);
+        document.getElementById("bmiResult").innerText = `Your BMI is ${bmi}`;
+      } else {
+        document.getElementById("bmiResult").innerText = "Enter valid inputs.";
+      }
+    }
+
+    function calculateWater() {
+      let weight = document.getElementById("weightWater").value;
+      if (weight > 0) {
+        let water = (weight * 35).toFixed(0);
+        document.getElementById("waterResult").innerText = `Drink ~${water} ml of water daily.`;
+      } else {
+        document.getElementById("waterResult").innerText = "Enter valid weight.";
+      }
+    }
+
+    function calculateBMR() {
+      let weight = document.getElementById("bmrWeight").value;
+      let height = document.getElementById("bmrHeight").value;
+      let age = document.getElementById("bmrAge").value;
+      let gender = document.getElementById("bmrGender").value;
+
+      if (weight > 0 && height > 0 && age > 0) {
+        let bmr;
+        if (gender === "male") {
+          bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+        } else {
+          bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+        }
+        document.getElementById("bmrResult").innerText = `Your BMR is ~${bmr.toFixed(2)} kcal/day.`;
+      } else {
+        document.getElementById("bmrResult").innerText = "Enter valid inputs.";
+      }
+    }
+
+    function calculateIdealWeight() {
+      let height = document.getElementById("idealHeight").value / 100;
+      if (height > 0) {
+        let min = (18.5 * height * height).toFixed(1);
+        let max = (24.9 * height * height).toFixed(1);
+        document.getElementById("idealWeightResult").innerText = `Your ideal weight range: ${min} - ${max} kg.`;
+      } else {
+        document.getElementById("idealWeightResult").innerText = "Enter valid height.";
+      }
+    }
+
+    function calculateBodyFat() {
+      let waist = document.getElementById("waist").value;
+      let neck = document.getElementById("neck").value;
+      let height = document.getElementById("bfHeight").value;
+
+      if (waist > 0 && neck > 0 && height > 0) {
+        let bodyFat = ((waist - neck) * 0.74 - (height * 0.082)).toFixed(1);
+        document.getElementById("bodyFatResult").innerText = `Estimated Body Fat: ${bodyFat}%`;
+      } else {
+        document.getElementById("bodyFatResult").innerText = "Enter valid inputs.";
+      }
+    }
+  </script>
+</body>
+</html>
