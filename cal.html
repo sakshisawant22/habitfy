@@ -9,12 +9,11 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #000000, #66a6ff);
+      background: linear-gradient(135deg, #cdcbcb, #056287);
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      
     }
 
     /* Navbar */
@@ -25,7 +24,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
+      padding: 15px 49px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       position: sticky;
       top: 0;
@@ -74,6 +73,18 @@
       width: 90%;
       max-width: 1200px;
       margin-bottom: 40px;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 900px) {
+      .calculator-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .calculator-container {
+        grid-template-columns: 1fr;
+      }
     }
 
     .card {
@@ -132,7 +143,6 @@
     </ul>
   </nav>
   
-    
   <h1>🧮 Health Calculators</h1>
 
   <div class="calculator-container">
@@ -192,7 +202,6 @@
       <button onclick="calculateBodyFat()">Calculate</button>
       <p class="result" id="bodyFatResult"></p>
     </div>
-  </div>
   </div>
 
   <script>
